@@ -7,9 +7,14 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height:100vh;
+    min-height: 100vh;
+    margin-bottom: 2rem;
     background-color: #ebf1ff;
     color: #34495e;
+}
+
+h1 {
+    font-weight: normal;
 }
 
 label {
@@ -33,6 +38,14 @@ input {
     outline: none;
     border-radius: 3px;
     box-shadow: 0 1px 4px rgba(0, 0, 0, .7);
+}
+
+input:hover {
+    background-color: #c4e4ff;
+}
+
+input:focus {
+    background-color: #a7dcff;
 }
 
 table {
@@ -75,14 +88,6 @@ tbody tr:last-of-type td:last-of-type {
     border-radius: 0 0 5px 0;
 }
 
-.bold {
-    font-weight: bold;
-}
-
-.not-bold {
-    font-weight: normal;
-}
-
 .btn {
     border: none;
     border-radius: 5px;
@@ -94,8 +99,8 @@ tbody tr:last-of-type td:last-of-type {
     background-color: #2196f3;
     box-shadow: 0 0 4px #999;
     outline: none;
-    margin-top: 1%;
-    margin-bottom: 2%;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
 }
 
 .btn.blue {
