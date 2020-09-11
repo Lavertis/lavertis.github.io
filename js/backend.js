@@ -1,48 +1,46 @@
-function getGCDTable(m, n) {
-    const mToInt = parseInt(m, 10)
-    const nToInt = parseInt(n, 10)
-    return calculateTable(mToInt, nToInt)
-}
-
-function calculateTable(m, n) {
+/**
+ * Calculates GCD table.
+ * @param  {Number} num1 The first number
+ * @param  {Number} num2 The second number
+ * @return {Array}       Calculated GCD array of numbers
+ */
+function getGCDTable(num1, num2) {
     let tableArray = []
-
-    let d = m
-    let d_prime = n
-    let d_prime_temp
-
+    let temp
+    let d = num1
+    let d_prime = num2
     let s = 1
     let s_prime = 0
-    let s_prime_temp
-
     let t = 0
     let t_prime = 1
-    let t_prime_temp
-
     let q = Math.floor(d / d_prime)
 
     while (d_prime !== 0) {
         addCurrentRowToArray(tableArray, d, d_prime, s, s_prime, t, t_prime, q)
 
-        d_prime_temp = d_prime
+        temp = d_prime
         d_prime = d - q * d_prime
-        d = d_prime_temp
+        d = temp
 
-        s_prime_temp = s_prime
+        temp = s_prime
         s_prime = s - s_prime * q
-        s = s_prime_temp
+        s = temp
 
-        t_prime_temp = t_prime
+        temp = t_prime
         t_prime = t - t_prime * q
-        t = t_prime_temp
+        t = temp
 
         q = Math.floor(d / d_prime)
     }
-    addCurrentRowToArray(tableArray, d, d_prime, s, s_prime, t, t_prime, null)
+    addCurrentRowToArray(tableArray, d, d_prime, s, s_prime, t, t_prime, q)
 
     return tableArray
 }
 
+/**
+ * Creates a new TableRow.
+ * @class
+ */
 class TableRow {
     constructor(d, d_prime, s, s_prime, t, t_prime, q) {
         this.d = d
@@ -55,7 +53,18 @@ class TableRow {
     }
 }
 
-function addCurrentRowToArray(tableArray, d, d_prime, s, s_prime, t, t_prime, q) {
+/**
+ * Adds new TableRow object to the array.
+ * @param {Array}   array   GCD array
+ * @param {Number}  d
+ * @param {Number}  d_prime
+ * @param {Number}  s
+ * @param {Number}  s_prime
+ * @param {Number}  t
+ * @param {Number}  t_prime
+ * @param {Number}  q
+ */
+function addCurrentRowToArray(array, d, d_prime, s, s_prime, t, t_prime, q) {
     const currentRow = new TableRow(d, d_prime, s, s_prime, t, t_prime, q)
-    tableArray.push(currentRow)
+    array.push(currentRow)
 }
