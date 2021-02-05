@@ -1,4 +1,4 @@
 # lavertis.github.io
 My webpage
 
-[lavertis.github.io](lavertis.github.io)
+[lavertis.github.io](http://lavertis.github.io)
